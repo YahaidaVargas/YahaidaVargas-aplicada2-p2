@@ -7,54 +7,72 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace YahaidaEx {
+namespace YahaidaEx.registros {
     
     
-    public partial class rVentas {
+    public partial class Articulos {
         
         /// <summary>
-        /// Control txtFecha.
+        /// Control txtId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.WebControls.TextBox txtId;
         
         /// <summary>
-        /// Control txtMonto.
+        /// Control btnBuscarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMonto;
+        protected global::System.Web.UI.WebControls.Button btnBuscarArticulos;
         
         /// <summary>
-        /// Control btnInsertar.
+        /// Control txt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsertar;
+        protected global::System.Web.UI.WebControls.TextBox txt;
         
         /// <summary>
-        /// Control GvDetalle.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvDetalle;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
         
         /// <summary>
-        /// Control SqlDataSource1.
+        /// Control BtnGuardarArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Button BtnGuardarArticulos;
+        
+        /// <summary>
+        /// Control btnEditarArticulos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditarArticulos;
+        
+        /// <summary>
+        /// Control btnEliminarArticulos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminarArticulos;
     }
 }

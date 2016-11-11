@@ -17,9 +17,10 @@ namespace YahaidaEx
             VentasDetalle vtD = new VentasDetalle();
         protected void Page_Load(object sender, EventArgs e)
         {
-         
 
-            
+            // txtFecha.Text = DateTime.Now.ToString("MM-dd-yy");
+            GvDetalle.DataSource = vn.Listado();
+            GvDetalle.DataBind();
 
         }
 
@@ -28,11 +29,13 @@ namespace YahaidaEx
             int VentId;
       
             vn.Monto=Convert.ToInt32(txtMonto.Text);
+            vn.Fecha = Convert.ToDateTime(txtFecha.Text);
             vn.Insertar();
             VentId= vn.VentasId;
 
-            
-           
+
+            GvDetalle.DataSource = vn.Listado();
+            GvDetalle.DataBind();
 
         }
     }

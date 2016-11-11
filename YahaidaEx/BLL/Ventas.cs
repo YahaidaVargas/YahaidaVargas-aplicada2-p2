@@ -19,13 +19,17 @@ namespace BLL
             Fecha = DateTime.Now;
             Monto = 0;
         }
-        public override bool Buscar(int IdBuscado)
+        public override bool Insertar()
         {
             ConexionDb conexion = new ConexionDb();
 
-            string sql = string.Format("insert into Ventas(Fecha, Monto) values({0},{1})SELECT @@IDENTITY", Fecha.ToString("yyy-MM-dd"), Monto);
+            string sql = string.Format("insert into Ventas(Fecha, Monto) values({0},{1})SELECT @@IDENTITY", Fecha.ToString("dd-MM-yyy"), Monto);
             VentasId = Convert.ToInt32(conexion.ObtenerValorDb(sql).ToString());
             return VentasId > 0;
+        }
+        public override bool Buscar(int IdBuscado)
+        {
+             throw new NotImplementedException();
         }
 
         public override bool Editar()
@@ -38,14 +42,13 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public override bool Insertar()
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        public override DataTable Listado(string Campos, string Condicion, string Orden)
+        public override DataTable Listado(string Campos = "*", string Condicion = "1=1", string Orden = "desc")
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            string sql = string.Format("SELECT {0} FROM Ventas WHERE {1} ORDER BY VentasID {2}", Campos, Condicion, Orden);
+            return conexion.BuscarDb(sql);
         }
     }
 }

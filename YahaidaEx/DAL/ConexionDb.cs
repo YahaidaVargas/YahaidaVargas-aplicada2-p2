@@ -13,7 +13,7 @@ namespace DAL
     /// </summary>
     public class ConexionDb
     {
-        SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\" C:\\Users\\Yahaida Vargas\\Source\\Repos\\YahaidaVargas - aplicada2 - p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf\";Integrated Security=True");
+        SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Yahaida Vargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf\";Integrated Security=True;Connect Timeout=30");
        
         
         //;Connect Timeout = 30
