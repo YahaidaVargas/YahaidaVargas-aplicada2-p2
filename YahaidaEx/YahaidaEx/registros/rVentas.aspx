@@ -79,13 +79,53 @@
             font-size: large;
             text-align: left;
         }
+
+        
+        .auto-style25 {
+            display: block;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+        
     </style>
+    <script src="../JQuery/jquery.searchabledropdown-1.0.7.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("select").searchable({
+                maxListSize: 200, // if list size are less than maxListSize, show them all
+                maxMultiMatch: 300, // how many matching entries should be displayed
+                exactMatch: false, // Exact matching on search
+                wildcards: true, // Support for wildcard characters (*, ?)
+                ignoreCase: true, // Ignore case sensitivity
+                latency: 200, // how many millis to wait until starting search
+                warnMultiMatch: 'top {0} matches ...',
+                warnNoMatch: 'no matches ...',
+                zIndex: 'auto'
+            });
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+        
     <table style="width: 95%;" align="center">
         <tr>
-            <td class="auto-style16"><strong>Id</strong></td>
-            <td class="auto-style7">
+            <td class="auto-style6"><strong>Id</strong></td>
+            <td class="auto-style7" colspan="2">
                 <asp:TextBox ID="TxtId" runat="server" TextMode="Number" class="form-control" Width="188px" ></asp:TextBox>
             </td>
             <td class="auto-style12">
@@ -98,7 +138,7 @@
         </tr>
         <tr>
             <td class="auto-style5">&nbsp;</td>
-            <td class="auto-style8">
+            <td class="auto-style8" colspan="2">
                 &nbsp;</td>
             <td class="auto-style13">
             </td>
@@ -107,8 +147,8 @@
             <td class="auto-style4">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style16"><strong>Monto</strong></td>
-            <td class="auto-style7">
+            <td class="auto-style6"><strong>Monto</strong></td>
+            <td class="auto-style7" colspan="2">
                 <asp:TextBox ID="txtMonto" runat="server" TextMode="Number" class="form-control" Height="31px" Width="262px"></asp:TextBox>
             </td>
             <td class="auto-style12">
@@ -119,7 +159,7 @@
         </tr>
         <tr>
             <td class="auto-style16"><strong>Articulo</strong></td>
-            <td class="auto-style14">
+            <td class="auto-style14" colspan="2">
                 <strong>Cantidad</strong></td>
             <td class="auto-style18">
                 <strong>Precio</strong></td>
@@ -129,10 +169,17 @@
         </tr>
         <tr>
             <td class="auto-style16">
-                <asp:TextBox ID="TextBox1" runat="server" class="form-control" ></asp:TextBox>
+                               
+            <asp:DropDownList ID="DdLstArticulos" runat="server" DataTextField="Descripcion" DataValueField="ArticulosId" AutoPostBack="True" CssClass="form-control" OnSelectedIndexChanged="DdLstArticulos_SelectedIndexChanged" OnTextChanged="DdLstArticulos_TextChanged">
+            </asp:DropDownList>
+
+                  
             </td>
             <td class="auto-style20">
-                <asp:TextBox ID="TextBox2" runat="server" class="form-control" Width="259px" TextMode="Number" ></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" class="form-control" Width="143px" TextMode="Number" CssClass="auto-style25" ></asp:TextBox>
+            </td>
+            <td class="auto-style20">
+                <asp:TextBox ID="TxBxExistencia" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style24">
                 <asp:TextBox ID="txtPrecio" runat="server" class="form-control" Width="152px" TextMode="Number"  ></asp:TextBox>
@@ -145,7 +192,7 @@
         <tr>
             <td class="auto-style6">
                 &nbsp;</td>
-            <td class="auto-style7">
+            <td class="auto-style7" colspan="2">
                 &nbsp;</td>
             <td class="auto-style11">
                 &nbsp;</td>
@@ -155,7 +202,7 @@
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style7">
+            <td class="auto-style7" colspan="2">
                 <asp:GridView ID="GvDetalle" runat="server" CellPadding="4" CssClass="auto-style2" ForeColor="#333333" GridLines="None" Width="291px">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#7C6F57" />
@@ -178,7 +225,7 @@
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style7">
+            <td class="auto-style7" colspan="2">
                 &nbsp;</td>
             <td class="auto-style12">
                 &nbsp;</td>
@@ -190,7 +237,7 @@
             <td class="auto-style1">
                 <asp:Button ID="btnGuardarVentas" runat="server" Text="Guardar" class="btn btn-primary"/>
             </td>
-            <td class="auto-style7">
+            <td class="auto-style7" colspan="2">
                <center><asp:Button ID="btnEditarVentas" runat="server" Text="Editar" class="btn btn-warning" /></center>
             </td>
             <td class="auto-style12">
@@ -201,4 +248,6 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+         
+
 </asp:Content>

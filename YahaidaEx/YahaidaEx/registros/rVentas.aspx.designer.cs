@@ -49,13 +49,13 @@ namespace YahaidaEx {
         protected global::System.Web.UI.WebControls.TextBox txtMonto;
         
         /// <summary>
-        /// Control TextBox1.
+        /// Control DdLstArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.DropDownList DdLstArticulos;
         
         /// <summary>
         /// Control TextBox2.
@@ -65,6 +65,15 @@ namespace YahaidaEx {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        
+        /// <summary>
+        /// Control TxBxExistencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxBxExistencia;
         
         /// <summary>
         /// Control txtPrecio.

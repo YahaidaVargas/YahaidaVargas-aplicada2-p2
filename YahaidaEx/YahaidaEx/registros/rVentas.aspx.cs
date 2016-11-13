@@ -22,6 +22,10 @@ namespace YahaidaEx
             GvDetalle.DataSource = vn.Listado();
             GvDetalle.DataBind();
 
+            Articulos art = new Articulos();
+            DdLstArticulos.DataSource = art.Listado();
+            DdLstArticulos.DataBind();
+
         }
 
         protected void btnInsertar_Click(object sender, EventArgs e)
@@ -37,6 +41,34 @@ namespace YahaidaEx
             GvDetalle.DataSource = vn.Listado();
             GvDetalle.DataBind();
 
+        }
+
+        protected void DdLstArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+                Articulos art = new Articulos();
+                TxBxExistencia.Text = "";
+                Utilitarios.ShowToastr(Page, DdLstArticulos.SelectedValue.ToString(), "Informacion", "success");
+                if (art.Buscar(Convert.ToInt32(DdLstArticulos.SelectedValue)))
+                {
+                    TxBxExistencia.Text = art.Existencia.ToString();
+                    txtPrecio.Text = art.Precio.ToString();
+                }
+            
+        }
+
+        protected void DdLstArticulos_TextChanged(object sender, EventArgs e)
+        {
+            
+                //Articulos art = new Articulos();
+                //TxBxExistencia.Text = "";
+                //Utilitarios.ShowToastr(Page, DdLstArticulos.SelectedValue.ToString(), "Informacion", "success");
+                //if (art.Buscar(Convert.ToInt32(DdLstArticulos.SelectedValue)))
+                //{
+                //    TxBxExistencia.Text = art.Existencia.ToString();
+                //    txtPrecio.Text = art.Precio.ToString();
+                //}
+            
         }
     }
 

@@ -154,7 +154,8 @@
     </table>
 
     <div class="well">
-        
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
                 <asp:Repeater ID="RepArticulos" runat="server" OnItemCommand="RepArticulos_ItemCommand">
                     <HeaderTemplate>
                         <table class="table table-striped">
@@ -168,7 +169,7 @@
                     <ItemTemplate>
                         <tbody>
                             <tr>
-                                <td><%# Eval("ArticuloId")%></td><td><%# Eval("Descripcion")%></td><td><%# Eval("Existencia")%></td><td><%# Eval("Precio")%></td><td> <asp:Button ID="BtnArtSel" Text="Seleccionar" runat="server" CssClass="btn btn-info btn-xs" CommandName="cmdSel" CommandArgument='<%# Eval("ArticuloId")%>' /> </td>
+                                <td><%# Eval("ArticulosId")%></td><td><%# Eval("Descripcion")%></td><td><%# Eval("Existencia")%></td><td><%# Eval("Precio")%></td><td> <asp:Button ID="BtnArtSel" Text="Seleccionar" runat="server" CssClass="btn btn-info btn-xs" CommandName="cmdSel" CommandArgument='<%# Eval("ArticulosId")%>' /> </td>
                             </tr>
                         </tbody>
                     </ItemTemplate>
@@ -177,7 +178,8 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
 
 </asp:Content>

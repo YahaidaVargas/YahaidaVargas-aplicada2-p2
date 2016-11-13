@@ -13,9 +13,9 @@ namespace DAL
     /// </summary>
     public class ConexionDb
     {
-        SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Yahaida Vargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf\";Integrated Security=True;Connect Timeout=30");
-       
-        
+        //SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Yahaida Vargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf\";Integrated Security=True;Connect Timeout=30");
+        SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\YahaidaVargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf;Integrated Security=True");
+
         //;Connect Timeout = 30
         /// <summary>
         /// Ejecutar comandos a la base de datos, recuerde pasar solo los comandos que no retornan algun valor

@@ -13,8 +13,6 @@ namespace YahaidaEx.registros
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Utilitarios.ShowToastr(Page, "No Existe dicho registro", "ERROR", "error");
-
             Articulos art = new Articulos();
             RepArticulos.DataSource = art.Listado();
             RepArticulos.DataBind();
@@ -26,7 +24,13 @@ namespace YahaidaEx.registros
             art.Descripcion = TxBxDescripcion.Text;
             art.Existencia = Convert.ToInt32(txtExistencia.Text);
             art.Precio = Convert.ToDecimal(txtPrecio.Text);
-            art.Insertar();
+            if (art.Insertar())
+            {
+                Utilitarios.ShowToastr(Page, "Registro guardado", "Informacion", "success");
+                LimpiaCampos();
+                RepArticulos.DataSource = art.Listado();
+                RepArticulos.DataBind();
+            }
         }
 
         protected void btnBuscarArticulos_Click(object sender, EventArgs e)
@@ -55,6 +59,7 @@ namespace YahaidaEx.registros
         {
 
             txtId.Text = e.CommandName;
+            Utilitarios.ShowToastr(this, "Clickaste", "Informacion", "info");
 
             if (e.CommandName == "cmdSel")
             {
@@ -71,15 +76,38 @@ namespace YahaidaEx.registros
 
         protected void LinkButtonEliminarArticulo_Click(object sender, EventArgs e)
         {
-            LimpiaCampos();
+            
             Articulos art = new Articulos();
             art.ArticulosId = Convert.ToInt32(txtId.Text);
-            art.Eliminar();
-            Utilitarios.ShowToastr(this, "No Existe dicho registro", "ERROR", "error");
+            if (art.Eliminar()) {
+                Utilitarios.ShowToastr(this, "Registro Eliminado Exitosamente", "Informacion", "success");
+                LimpiaCampos();
+            }
+            else
+            {
+                Utilitarios.ShowToastr(this, "Fallo en eliminar registro", "Informacion", "error");
+            }
+            
+                        
+            RepArticulos.DataSource = art.Listado();
+            RepArticulos.DataBind();
         }
 
         protected void btnEditarArticulos_Click(object sender, EventArgs e)
         {
+            Articulos art = new Articulos();
+            art.Descripcion = TxBxDescripcion.Text;
+            art.Existencia = Convert.ToInt32(txtExistencia.Text);
+            art.Precio = Convert.ToDecimal(txtPrecio.Text);
+            art.ArticulosId = Convert.ToInt32(txtId.Text);
+
+            if (art.Editar())
+            {
+                Utilitarios.ShowToastr(this, "Actualizacion exitosa", "Informacion", "info");
+                LimpiaCampos();
+                RepArticulos.DataSource = art.Listado();
+                RepArticulos.DataBind();
+            }            
 
         }
     }
