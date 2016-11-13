@@ -81,7 +81,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Maestra.Master" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="registros\Articulos.aspx" />
+    <Content Include="registros\rArticulos.aspx" />
     <Content Include="registros\rVentas.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -105,12 +105,12 @@
       <DependentUpon>Maestra.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="registros\Articulos.aspx.cs">
-      <DependentUpon>Articulos.aspx</DependentUpon>
+    <Compile Include="registros\rArticulos.aspx.cs">
+      <DependentUpon>rArticulos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="registros\Articulos.aspx.designer.cs">
-      <DependentUpon>Articulos.aspx</DependentUpon>
+    <Compile Include="registros\rArticulos.aspx.designer.cs">
+      <DependentUpon>rArticulos.aspx</DependentUpon>
     </Compile>
     <Compile Include="registros\rVentas.aspx.cs">
       <DependentUpon>rVentas.aspx</DependentUpon>

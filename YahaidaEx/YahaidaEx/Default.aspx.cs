@@ -17,7 +17,7 @@ namespace YahaidaEx
 
         protected void ToastrButton_Click(object sender, EventArgs e)
         {
-            Utilitarios.ShowToastr(Page, "Funciona", "Mensaje", "success");
+            Utilitarios.ShowToastr(Page, "Funciona", "Mensaje", "error");
         }
     }
 }

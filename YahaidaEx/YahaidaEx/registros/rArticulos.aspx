@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Maestra.Master" AutoEventWireup="true" CodeBehind="Articulos.aspx.cs" Inherits="YahaidaEx.registros.Articulos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Maestra.Master" AutoEventWireup="true" CodeBehind="rArticulos.aspx.cs" Inherits="YahaidaEx.registros.rArticulos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style2 {
@@ -58,19 +58,18 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-  
-
-  
+    <asp:ScriptManager ID="ScriptManagerArticles" runat="server"></asp:ScriptManager>
+      
 
     <table style="width:100%;">
         <tr>
             <td class="auto-style5"><strong>Id</strong></td>
             <td class="auto-style6">
-                :
+                
                 <asp:TextBox ID="txtId" runat="server" class="form-control" TextMode="Number" Width="225px"></asp:TextBox>
             </td>
             <td class="auto-style3">
-                <asp:Button ID="btnBuscarArticulos" runat="server" Text="Buscar" class="btn btn-info" />
+                <asp:Button ID="btnBuscarArticulos" runat="server" Text="Buscar" class="btn btn-info" OnClick="btnBuscarArticulos_Click" />
             </td>
             <td aria-readonly="False"></td>
         </tr>
@@ -85,7 +84,7 @@
         <tr>
             <td class="auto-style8"><strong><span class="auto-style4">Descripcion:</span></strong> </td>
             <td class="auto-style13">
-                <textarea id="TextAreaDescripcion" class="auto-style2" class="auto-style1" name="S1"></textarea></td>
+                <asp:TextBox ID="TxBxDescripcion" CssClass="auto-style2 auto-style1" runat="server" TextMode="MultiLine"></asp:TextBox></td>
             <td class="auto-style11">
                 &nbsp;</td>
             <td aria-readonly="False">&nbsp;</td>
@@ -101,7 +100,7 @@
         <tr>
             <td class="auto-style8"><strong><span class="auto-style4">Existencia</span></strong>:</td>
             <td class="auto-style13">
-                <asp:TextBox ID="txt" runat="server" class="form-control" Height="29px" Width="258px"></asp:TextBox>
+                <asp:TextBox ID="txtExistencia" runat="server" class="form-control" Height="29px" Width="258px" TextMode="Number"></asp:TextBox>
             </td>
             <td class="auto-style11">
                 &nbsp;</td>
@@ -118,7 +117,7 @@
         <tr>
             <td class="auto-style8"><strong><span class="auto-style4">Precio</span></strong>:</td>
             <td class="auto-style13">
-                <asp:TextBox ID="txtPrecio" runat="server" class="form-control" Width="255px" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtPrecio" runat="server" class="form-control" Width="255px"></asp:TextBox>
             </td>
             <td class="auto-style11">
                 &nbsp;</td>
@@ -134,13 +133,13 @@
         </tr>
         <tr>
             <td class="auto-style8">
-                <asp:Button ID="BtnGuardarArticulos" runat="server" Text="Guardar" class="btn btn-primary"/>
+                <asp:Button ID="BtnGuardarArticulos" runat="server" Text="Guardar" class="btn btn-primary" OnClick="BtnGuardarArticulos_Click"/>
             </td>
             <td class="auto-style10">
-                <asp:Button ID="btnEditarArticulos" runat="server" Text="Editar" class="btn btn-warning" />
+                <asp:Button ID="btnEditarArticulos" runat="server" Text="Editar" class="btn btn-warning" OnClick="btnEditarArticulos_Click" />
             </td>
             <td class="auto-style12">
-                <asp:Button ID="btnEliminarArticulos" runat="server" Text="Eliminar" class="btn btn-danger"/>
+                <asp:LinkButton ID="LinkButtonEliminarArticulo" runat="server" CssClass="btn btn-danger" OnClick="LinkButtonEliminarArticulo_Click">Eliminar</asp:LinkButton>
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -153,5 +152,32 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+
+    <div class="well">
+        
+                <asp:Repeater ID="RepArticulos" runat="server" OnItemCommand="RepArticulos_ItemCommand">
+                    <HeaderTemplate>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th><th>Descripcion</th><th>Existencia</th><th>Precio</th><th>Opciones</th>
+                                </tr>
+                            </thead>
+                    </HeaderTemplate>
+
+                    <ItemTemplate>
+                        <tbody>
+                            <tr>
+                                <td><%# Eval("ArticuloId")%></td><td><%# Eval("Descripcion")%></td><td><%# Eval("Existencia")%></td><td><%# Eval("Precio")%></td><td> <asp:Button ID="BtnArtSel" Text="Seleccionar" runat="server" CssClass="btn btn-info btn-xs" CommandName="cmdSel" CommandArgument='<%# Eval("ArticuloId")%>' /> </td>
+                            </tr>
+                        </tbody>
+                    </ItemTemplate>
+
+                    <FooterTemplate>
+                        </table>
+                    </FooterTemplate>
+                </asp:Repeater>
+
+    </div>
 
 </asp:Content>

@@ -12,13 +12,13 @@ namespace BLL
         public int ArticulosId { get; set; }
         public string Descripcion { get; set; }
         public int Existencia { get; set; }
-        public int Precio { get; set; }
+        public Decimal Precio { get; set; }
 
         public Articulos(){
             ArticulosId=0;
             Descripcion = "";
             Existencia = 0;
-            Precio = 0;      
+            Precio = 0m;      
             }
         public override bool Insertar()
         {
@@ -33,23 +33,46 @@ namespace BLL
 
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+
+            string sql = string.Format("SELECT * FROM Articulos WHERE ArticuloId = {0}", IdBuscado);
+
+            DataTable dt = conexion.BuscarDb(sql);
+
+            if (dt.Rows.Count > 0)
+            {
+                ArticulosId = Convert.ToInt32(dt.Rows[0]["ArticuloId"]);
+                Descripcion = dt.Rows[0]["Descripcion"].ToString();
+                Existencia = Convert.ToInt32(dt.Rows[0]["Existencia"]);
+                Precio  = Convert.ToDecimal(dt.Rows[0]["Precio"]);
+            }
+            
+            return dt.Rows.Count > 0;
         }
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+
+            string sql = string.Format("UPDATE Articulos SET Descripcion = '{0}', Existencia = {1}, Precio = {2} WHERE ArticuloId = {3}",Descripcion, Existencia, Precio, ArticulosId);
+            return conexion.EjecutarDB(sql);
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+
+            string sql = string.Format("DELETE FROM Articulos WHERE ArticuloId = {0}", ArticulosId);
+            return conexion.EjecutarDB(sql);
         }
 
       
-        public override DataTable Listado(string Campos, string Condicion, string Orden)
+        public override DataTable Listado(string Campos = "*", string Condicion = "1=1", string Orden = "DESC")
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+
+            string sql = string.Format("SELECT {0} FROM Articulos WHERE {1} ORDER BY ArticuloId {2}", Campos, Condicion, Orden);
+            return conexion.BuscarDb(sql);
         }
     }
 }

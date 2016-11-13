@@ -10,7 +10,16 @@
 namespace YahaidaEx.registros {
     
     
-    public partial class Articulos {
+    public partial class rArticulos {
+        
+        /// <summary>
+        /// Control ScriptManagerArticles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManagerArticles;
         
         /// <summary>
         /// Control txtId.
@@ -31,13 +40,22 @@ namespace YahaidaEx.registros {
         protected global::System.Web.UI.WebControls.Button btnBuscarArticulos;
         
         /// <summary>
-        /// Control txt.
+        /// Control TxBxDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt;
+        protected global::System.Web.UI.WebControls.TextBox TxBxDescripcion;
+        
+        /// <summary>
+        /// Control txtExistencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExistencia;
         
         /// <summary>
         /// Control txtPrecio.
@@ -67,12 +85,21 @@ namespace YahaidaEx.registros {
         protected global::System.Web.UI.WebControls.Button btnEditarArticulos;
         
         /// <summary>
-        /// Control btnEliminarArticulos.
+        /// Control LinkButtonEliminarArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminarArticulos;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonEliminarArticulo;
+        
+        /// <summary>
+        /// Control RepArticulos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepArticulos;
     }
 }
