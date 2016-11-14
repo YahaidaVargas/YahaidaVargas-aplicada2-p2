@@ -74,6 +74,17 @@ namespace BLL
             string sql = string.Format("SELECT {0} FROM Articulos WHERE {1} ORDER BY ArticulosId {2}", Campos, Condicion, Orden);
             return conexion.BuscarDb(sql);
         }
+
+        public void reduceExistencia(int id, int venta)
+        {
+            ConexionDb conexion = new ConexionDb();
+            if (Buscar(id))
+            {
+                int nuevaExistencia = Existencia - venta;
+                string sql = string.Format("UPDATE Articulos SET Existencis = {0} WHERE {1}", nuevaExistencia, id);
+                conexion.EjecutarDB(sql);
+            }                        
+        }
     }
 }
 

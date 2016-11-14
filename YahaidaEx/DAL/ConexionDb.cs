@@ -12,9 +12,9 @@ namespace DAL
     /// Clase para gestionar la conexion a la base de datos SQL SERVER
     /// </summary>
     public class ConexionDb
-    {
-        //SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Yahaida Vargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf\";Integrated Security=True;Connect Timeout=30");
-        SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\YahaidaVargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf;Integrated Security=True");
+    {        
+        SqlConnection Conexion = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
+        //SqlConnection Conexion = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\YahaidaVargas\\Source\\Repos\\YahaidaVargas-aplicada2-p2\\YahaidaEx\\YahaidaEx\\App_Data\\Parcial2Db.mdf;Integrated Security=True");
 
         //;Connect Timeout = 30
         /// <summary>

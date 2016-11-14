@@ -38,15 +38,8 @@
             width: 53px;
         }
         .auto-style11 {
-            width: 8px;
+            width: 46px;
             font-size: large;
-        }
-        .auto-style12 {
-            width: 8px;
-        }
-        .auto-style13 {
-            height: 24px;
-            width: 8px;
         }
         .auto-style14 {
             width: 86px;
@@ -62,12 +55,8 @@
             text-align: center;
         }
         .auto-style18 {
-            width: 8px;
+            width: 46px;
             font-size: large;
-            text-align: center;
-        }
-        .auto-style20 {
-            width: 86px;
             text-align: center;
         }
         .auto-style21 {
@@ -75,14 +64,31 @@
             text-align: left;
         }
         .auto-style24 {
-            width: 8px;
+            width: 46px;
             font-size: large;
             text-align: left;
         }
 
         
-        .auto-style25 {
+        .auto-style26 {
+            width: 46px;
+        }
+        .auto-style27 {
+            height: 24px;
+            width: 46px;
+        }
+        .auto-style29 {
+            width: 113px;
+            text-align: center;
+        }
+        .auto-style30 {
+            text-align: center;
+            width: 103px;
+        }
+        .auto-style31 {
             display: block;
+            width: 100%;
+            height: 34px;
             padding: 6px 12px;
             font-size: 14px;
             line-height: 1.42857143;
@@ -96,6 +102,7 @@
             -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
             -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
             transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            margin-left: 0;
         }
 
         
@@ -128,7 +135,7 @@
             <td class="auto-style7" colspan="2">
                 <asp:TextBox ID="TxtId" runat="server" TextMode="Number" class="form-control" Width="188px" ></asp:TextBox>
             </td>
-            <td class="auto-style12">
+            <td class="auto-style26">
                 <asp:Button ID="btnBuscarVentas" runat="server" Text="Buscar" class="btn btn-info" />
             </td>
             <td class="auto-style9">
@@ -140,22 +147,11 @@
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style8" colspan="2">
                 &nbsp;</td>
-            <td class="auto-style13">
+            <td class="auto-style27">
             </td>
             <td class="auto-style10">
                 &nbsp;</td>
             <td class="auto-style4">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6"><strong>Monto</strong></td>
-            <td class="auto-style7" colspan="2">
-                <asp:TextBox ID="txtMonto" runat="server" TextMode="Number" class="form-control" Height="31px" Width="262px"></asp:TextBox>
-            </td>
-            <td class="auto-style12">
-                &nbsp;</td>
-            <td class="auto-style9">
-                &nbsp;</td>
-            <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style16"><strong>Articulo</strong></td>
@@ -170,16 +166,25 @@
         <tr>
             <td class="auto-style16">
                                
-            <asp:DropDownList ID="DdLstArticulos" runat="server" DataTextField="Descripcion" DataValueField="ArticulosId" AutoPostBack="True" CssClass="form-control" OnSelectedIndexChanged="DdLstArticulos_SelectedIndexChanged" OnTextChanged="DdLstArticulos_TextChanged">
+            <asp:DropDownList ID="DdLstArticulos" runat="server" DataTextField="Descripcion" DataValueField="ArticulosId" AutoPostBack="True" CssClass="form-control" OnSelectedIndexChanged="DdLstArticulos_SelectedIndexChanged" DataSourceID="ObjectDataSourceArticulos">
             </asp:DropDownList>
-
+                                  
+                <asp:ObjectDataSource ID="ObjectDataSourceArticulos" runat="server" SelectMethod="Listado" TypeName="BLL.Articulos">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="*" Name="Campos" Type="String" />
+                        <asp:Parameter DefaultValue="1=1" Name="Condicion" Type="String" />
+                        <asp:Parameter DefaultValue="DESC" Name="Orden" Type="String" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+                
+                <asp:HiddenField ID="HidDescArtic" runat="server"  />
                   
             </td>
-            <td class="auto-style20">
-                <asp:TextBox ID="TextBox2" runat="server" class="form-control" Width="143px" TextMode="Number" CssClass="auto-style25" ></asp:TextBox>
+            <td class="auto-style30">
+                <asp:TextBox ID="TxBxCantidad" runat="server" class="form-control" Width="143px" TextMode="Number" CssClass="form-control" ></asp:TextBox>
             </td>
-            <td class="auto-style20">
-                <asp:TextBox ID="TxBxExistencia" runat="server" CssClass="form-control" ReadOnly="True"></asp:TextBox>
+            <td class="auto-style29">
+                <asp:TextBox ID="TxBxExistencia" runat="server" CssClass="auto-style31" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style24">
                 <asp:TextBox ID="txtPrecio" runat="server" class="form-control" Width="152px" TextMode="Number"  ></asp:TextBox>
@@ -203,7 +208,7 @@
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style7" colspan="2">
-                <asp:GridView ID="GvDetalle" runat="server" CellPadding="4" CssClass="auto-style2" ForeColor="#333333" GridLines="None" Width="291px">
+                <asp:GridView ID="GvDetalle" runat="server" CellPadding="4" CssClass="auto-style2" ForeColor="#333333" GridLines="None" Width="397px">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#7C6F57" />
                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -217,7 +222,7 @@
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                 </asp:GridView>
             </td>
-            <td class="auto-style12">
+            <td class="auto-style26">
                 &nbsp;</td>
             <td class="auto-style9">
                 &nbsp;</td>
@@ -227,7 +232,28 @@
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style7" colspan="2">
                 &nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style26">
+                &nbsp;</td>
+            <td class="auto-style9">
+                &nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1"><strong>Monto</strong></td>
+            <td class="auto-style7" colspan="2">
+                <asp:TextBox ID="txtMonto" runat="server" TextMode="Number" class="form-control" Height="31px" Width="262px"></asp:TextBox>
+            </td>
+            <td class="auto-style26">
+                &nbsp;</td>
+            <td class="auto-style9">
+                &nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style7" colspan="2">
+                &nbsp;</td>
+            <td class="auto-style26">
                 &nbsp;</td>
             <td class="auto-style9">
                 &nbsp;</td>
@@ -235,12 +261,12 @@
         </tr>
         <tr>
             <td class="auto-style1">
-                <asp:Button ID="btnGuardarVentas" runat="server" Text="Guardar" class="btn btn-primary"/>
+                <asp:Button ID="btnGuardarVentas" runat="server" Text="Guardar" class="btn btn-primary" OnClick="btnGuardarVentas_Click"/>
             </td>
             <td class="auto-style7" colspan="2">
                <center><asp:Button ID="btnEditarVentas" runat="server" Text="Editar" class="btn btn-warning" /></center>
             </td>
-            <td class="auto-style12">
+            <td class="auto-style26">
                 <asp:Button ID="btnEliminarVentas" runat="server" Text="Eliminar" class="btn btn-danger"/>
             </td>
             <td class="auto-style9">

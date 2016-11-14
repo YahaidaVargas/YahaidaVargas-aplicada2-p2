@@ -40,15 +40,6 @@ namespace YahaidaEx {
         protected global::System.Web.UI.WebControls.TextBox txtFecha;
         
         /// <summary>
-        /// Control txtMonto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMonto;
-        
-        /// <summary>
         /// Control DdLstArticulos.
         /// </summary>
         /// <remarks>
@@ -58,13 +49,31 @@ namespace YahaidaEx {
         protected global::System.Web.UI.WebControls.DropDownList DdLstArticulos;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control ObjectDataSourceArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceArticulos;
+        
+        /// <summary>
+        /// Control HidDescArtic.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HidDescArtic;
+        
+        /// <summary>
+        /// Control TxBxCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxBxCantidad;
         
         /// <summary>
         /// Control TxBxExistencia.
@@ -101,6 +110,15 @@ namespace YahaidaEx {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvDetalle;
+        
+        /// <summary>
+        /// Control txtMonto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMonto;
         
         /// <summary>
         /// Control btnGuardarVentas.
