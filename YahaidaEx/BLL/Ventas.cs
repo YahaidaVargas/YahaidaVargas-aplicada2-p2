@@ -11,13 +11,13 @@ namespace BLL
     {
         public int  VentasId { get; set; }
         public DateTime Fecha { get; set; }
-        public int Monto { get; set; }
+        public Decimal Monto { get; set; }
 
         public Ventas()
         {
             VentasId = 0;
             Fecha = DateTime.Now;
-            Monto = 0;
+            Monto = 0m;
         }
         public override bool Insertar()
         {

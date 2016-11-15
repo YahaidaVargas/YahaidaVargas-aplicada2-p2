@@ -20,16 +20,14 @@ namespace YahaidaEx
         DataColumn dc;
         DataRow dr;
 
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             // txtFecha.Text = DateTime.Now.ToString("MM-dd-yy");
             //GvDetalle.DataSource = vn.Listado();
             //GvDetalle.DataBind();
 
-            if (!IsCallback)
-            {
-
-            }
+            txtFecha.Text = DateTime.Now.ToString();
 
         }
 
@@ -54,7 +52,6 @@ namespace YahaidaEx
 
             decimal precio;
             int cant;
-            decimal total = 0m;
 
             cant = Int32.Parse(TxBxCantidad.Text);
             precio = Decimal.Parse(txtPrecio.Text);
@@ -63,15 +60,13 @@ namespace YahaidaEx
 
             dr["Importe"] = importe;
 
-            total += importe;
+            Session["total"] =  Convert.ToDecimal(Session["total"])  +  importe;
 
-            Session["total"] = total;
-            
             dtArt.Rows.Add(dr);
 
             GvDetalle.DataSource = dtArt;
             GvDetalle.DataBind();
-
+            txtMonto.Text = Session["total"].ToString();
 
         }
 
@@ -148,10 +143,43 @@ namespace YahaidaEx
         protected void btnGuardarVentas_Click(object sender, EventArgs e)
         {
             Articulos art = new Articulos();
+            Ventas vent = new Ventas();
+            VentasDetalle ventDetall = new VentasDetalle();
 
-                //foreach(var i in dtArt.Rows) {
-                //art.reduceExistencia(Convert.ToInt32(i["ArticuloId"]), Convert.ToInt32(i["Cantidad"]);
-                //}
+            vent.Monto = Convert.ToDecimal(Session["total"]);
+
+            //vent.Fecha = Convert.ToDateTime(txtFecha.Text);
+
+            if (vent.Insertar())
+            {
+             foreach (DataRow r in dtArt.Rows)
+                {
+                    ventDetall.ArticuloId = Convert.ToInt32(r["ArticuloId"]);
+                    ventDetall.Ventaid = vent.VentasId;
+                    ventDetall.Cantidad = Convert.ToInt32(r["Cantidad"]);
+                    ventDetall.Precio = Convert.ToDecimal(txtPrecio.Text);
+                    
+                    if (vent.Insertar())
+                    {
+                        art.reduceExistencia(Convert.ToInt32(r["ArticuloId"]), Convert.ToInt32(r["Cantidad"])); 
+                    }
+                }
+            }
+
+
+          
+        }
+
+        protected void TxBxCantidad_TextChanged(object sender, EventArgs e)
+        {
+            int cant = Convert.ToInt32(TxBxCantidad.Text);
+            int maxim = Convert.ToInt32(TxBxExistencia.Text);
+
+            if (cant > maxim)
+            {
+                Utilitarios.ShowToastr(Page,"No puedes exceder el limite de: " + maxim, "Limite Excedido", "error");
+                TxBxCantidad.Text = maxim.ToString();
+            }
         }
     }
 

@@ -14,7 +14,7 @@ namespace BLL
 
         public int ArticuloId { get; set; }
         public int Cantidad{ get; set; }
-        public int Precio{ get; set; }
+        public Decimal Precio{ get; set; }
 
         public VentasDetalle()
         {
@@ -22,7 +22,7 @@ namespace BLL
             Ventaid = 0;
             ArticuloId = 0;
             Cantidad = 0;
-            Precio = 0;
+            Precio = 0m;
         }
         public override bool Insertar()
         {

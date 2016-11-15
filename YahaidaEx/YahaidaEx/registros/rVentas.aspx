@@ -181,7 +181,7 @@
                   
             </td>
             <td class="auto-style30">
-                <asp:TextBox ID="TxBxCantidad" runat="server" class="form-control" Width="143px" TextMode="Number" CssClass="form-control" ></asp:TextBox>
+                <asp:TextBox ID="TxBxCantidad" runat="server" class="form-control" Width="143px" TextMode="Number" CssClass="form-control" AutoPostBack="True" OnTextChanged="TxBxCantidad_TextChanged" ></asp:TextBox>
             </td>
             <td class="auto-style29">
                 <asp:TextBox ID="TxBxExistencia" runat="server" CssClass="auto-style31" ReadOnly="True"></asp:TextBox>
